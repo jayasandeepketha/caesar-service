@@ -1,5 +1,5 @@
 name: Run the Tests, Build the image
- on:
+on:
   push:
     branches:
       - main
@@ -19,17 +19,17 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.11
-    -name: Install dependencies
+    - name: Install dependencies
       run: |
         pip install -r requirements.txt
       
-    -name: Unit Testing
+    - name: Unit Testing
       run: |
         cd ciphers_project
         python3 manage.py test
 
     - name: Build and Push the image
       run: |
-      docker login --username jayasandeepketha --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-      docker build -t ghcr.io/jayasandeepketha/ciphers-service:latest --file Dockerfile .  
-      docker push ghcr.io/jayasandeepketha/ciphers-service:latest 
+       docker login --username jayasandeepketha --password ${{secrets.ACCESS_TOKEN}} ghcr.io
+       docker build -t ghcr.io/jayasandeepketha/ciphers-service:latest --file Dockerfile .  
+       docker push ghcr.io/jayasandeepketha/ciphers-service:latest 
