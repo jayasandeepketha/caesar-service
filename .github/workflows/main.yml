@@ -1,5 +1,5 @@
 name: Run the Tests
- on:
+on:
   push:
     branches:
       - master
