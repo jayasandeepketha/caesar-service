@@ -6,6 +6,6 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 COPY ./ciphers_project ciphers_project/
-COPY /home/application/.entrypoint.sh .
+COPY entrypoint.sh .
 ENTRYPOINT ["/home/application/.entrypoint.sh"]
 
